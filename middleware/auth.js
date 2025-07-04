@@ -1,4 +1,3 @@
-// middleware/auth.js
 const jwt = require('jsonwebtoken');
 
 const protect = (req, res, next) => {
@@ -13,7 +12,7 @@ const protect = (req, res, next) => {
             const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
             // Attach user to the request object (e.g., req.user = { userId: ..., role: ... })
-            req.user = decoded; // The payload from our JWT
+            req.user = decoded; // The payload from the JWT
 
             next(); // Proceed to the next middleware/route handler
         } catch (error) {

@@ -1,4 +1,3 @@
-// models/User.js
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
@@ -17,7 +16,7 @@ const UserSchema = new mongoose.Schema({
         lowercase: true,
         match: [/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/, 'Please enter a valid email']
     },
-    password: { // This will store the hashed password
+    password: { // Stores the hashed password
         type: String,
         required: true
     },

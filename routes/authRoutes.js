@@ -1,7 +1,6 @@
-// routes/authRoutes.js
 const express = require('express');
 const jwt = require('jsonwebtoken');
-const User = require('../models/User'); // Import the User model
+const User = require('../models/User');
 const router = express.Router();
 
 // Helper function to generate JWT
@@ -81,11 +80,6 @@ router.post('/login', async (req, res) => {
         if (!isMatch) {
             return res.status(401).json({ error: 'Unauthorized', details: 'Invalid email or password.' });
         }
-
-        // (Optional) Check if email is verified if you implement email verification
-        // if (!user.isEmailVerified) {
-        //     return res.status(401).json({ error: 'Unauthorized', details: 'Please verify your email to log in.' });
-        // }
 
         // 4. Generate JWT
         const token = generateToken(user);
